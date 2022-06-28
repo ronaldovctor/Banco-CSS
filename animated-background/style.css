@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f0731;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.container .bubbles {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.container .bubbles span {
+  position: relative;
+  min-width: 30px;
+  min-height: 30px;
+  background-color: #00ffff;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 12px rgba(79, 195, 220, 0.2666666667), 0 0 50px #4fc3dc, 0 0 100px #31bbda;
+  -webkit-animation: animate linear infinite;
+          animation: animate linear infinite;
+  -webkit-animation-duration: calc(95s / var(--i));
+          animation-duration: calc(95s / var(--i));
+}
+.container .bubbles span:nth-child(even) {
+  background-color: #ff0101;
+  box-shadow: 0 0 0 12px rgba(220, 79, 79, 0.2666666667), 0 0 50px #dc4f4f, 0 0 100px #d82e2e;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}/*# sourceMappingURL=style.css.map */
