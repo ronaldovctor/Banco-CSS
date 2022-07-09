@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #180036;
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#a22fff, #0e1eff);
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.circle {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3333333333), 0 0 0 20px #1e002c, 0 0 0 22px rgba(255, 255, 255, 0.493), 0 0 50px #fff, 0 0 450px #fff;
+}
+.circle::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 180px;
+  border-radius: 2px;
+  background: linear-gradient(0deg, transparent, #fff);
+  transform-origin: bottom;
+  -webkit-animation: animatedNiddles 10s steps(60) infinite;
+          animation: animatedNiddles 10s steps(60) infinite;
+}
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 130px;
+  border-radius: 2px;
+  background: linear-gradient(0deg, transparent, #fff);
+  transform-origin: bottom;
+  -webkit-animation: animatedNiddles 600s steps(60) infinite;
+          animation: animatedNiddles 600s steps(60) infinite;
+}
+.circle ul {
+  position: absolute;
+  top: 0;
+  left: 245px;
+  transform-origin: 0 150px;
+  transform: rotate(-4deg);
+}
+.circle ul li {
+  position: absolute;
+  top: 10px;
+  list-style: none;
+  transform-origin: 0 240px;
+  transform: rotate(calc(30deg * var(--i)));
+  font-size: 2.5em;
+  font-weight: bold;
+  font-family: consolas;
+}
+.circle ul li span {
+  display: inline-block;
+  color: #fff;
+  transform: rotate(calc(30deg * var(--v)));
+  text-shadow: 0 0 15px #fff, 0 0 35px #fff, 0 0 35px #fff, 0 0 150px #fff;
+}
+
+@-webkit-keyframes animatedNiddles {
+  0% {
+    transform: translate(0, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, -50%) rotate(360deg);
+  }
+}
+
+@keyframes animatedNiddles {
+  0% {
+    transform: translate(0, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, -50%) rotate(360deg);
+  }
+}/*# sourceMappingURL=style.css.map */
