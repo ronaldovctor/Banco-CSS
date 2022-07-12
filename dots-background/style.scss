@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: #05011b;
+    overflow: hidden;
+
+    & .dots{
+        width: 100%;
+        min-height: 100vh;
+        flex-wrap: wrap;
+        overflow: hidden;
+
+        & span {
+            display: inline-flex;
+            position: relative;
+            width: 50px;
+            height: 50px;
+
+            &::before {
+                content: '';
+                background-color: #a200ff;
+                border-radius: 50%;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: scale(.2);
+                box-shadow: 0 0 50px #a200ff,
+                0 0 70px #a200ff,
+                0 0 90px #a200ff,
+                0 0 100px #a200ff81;
+                transition: 1s;
+                animation: changeColor 5s linear infinite;
+            }
+
+            &:hover::before{
+                transition: 0s;
+                transform: scale(.8);
+            }
+        }
+    }
+}
+
+@keyframes changeColor {
+    0%{
+        filter: hue-rotate(0deg) saturate(1)
+    }
+    100%{
+        filter: hue-rotate(360deg) saturate(1)
+    }
+}
