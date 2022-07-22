@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    & .street{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 900px;
+        height: 180px;
+        background-color: #303030;
+        border-radius: 125px;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 500px;
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 7px;
+            background: linear-gradient(90deg, white 50%, transparent 50%);
+            background-size: 50px;
+            animation: animate_road .5s linear infinite;
+        }
+
+        @keyframes animate_road {
+            0%{
+                background-position: 300px;
+            }
+            100%{
+                background-position: 0;
+            }
+        }
+
+        & .car {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            top: 38px;
+            left: 14%;
+            width: 250px;
+            height: 100px;
+            border-radius: 10px;
+            border-width: 5px 10px;
+            background: #d3b300;
+            box-shadow: -10px 10px rgba(0,0,0,.5);
+            transform-style: preserve-3d;
+            perspective:600px;
+            animation: move_car 1.8s linear infinite;
+
+            &:nth-child(2){
+                left: 55%;
+                z-index: 1;
+                animation: move_car 5s linear infinite;
+                animation-delay: -1s;
+            }
+
+            &::before {
+                position: absolute;
+                content: '';
+                top: 18%;
+                left: 2px;
+                width: 6px;
+                height: 18px;
+                background: red;
+                box-shadow: 0 48px red;
+                border-radius: 3px;
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 18%;
+                right: 2px;
+                width: 7px;
+                height: 18px;
+                background: white;
+                box-shadow: 0 48px white;
+                border-radius: 3px;
+            }
+
+            & span {
+                position: absolute;
+                z-index: 2;
+                inset: 8px 12px;
+                background-color: #f0cc00;
+                border-radius: 10px;
+                overflow: hidden;
+
+                &::before{
+                    position: absolute;
+                    z-index: 2;
+                    content: 'TAXI';
+                    top: 50%;
+                    left: 50%;
+                    background: white;
+                    padding: 0 3px;
+                    border-radius: 3px;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    transform: translate(-50%, -50%) rotate(90deg);
+                    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+                }
+
+                & b{
+                    position: absolute;
+                    inset: 2px 38px;
+                    background: black;
+                    border-radius: 10px;
+
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        inset: 5px 30px;
+                        background: #f0cc00;
+                        border-radius: 5px;
+                    }
+
+                    &::before{
+                        position: absolute;
+                        content:'';
+                        background: #f0cc00;
+                        top: 0;
+                        left: 50%;
+                        width: 6px;
+                        height: 100%;
+                    }
+
+                    & i {
+                        position: absolute;
+                        inset: 0;
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            top:3px;
+                            width: 38px;
+                            height: 5px;
+                            transform: rotate(13deg);
+                            background: #f0cc00;
+                            box-shadow: 130px 43px #f0cc00;
+                        }
+                        &::after{
+                            position: absolute;
+                            content:'';
+                            bottom: 0px;
+                            bottom:3px;
+                            width: 38px;
+                            height: 5px;
+                            transform: rotate(-13deg);
+                            background: #f0cc00;
+                            box-shadow: 130px -43px #f0cc00;
+                        }
+                    }
+                }
+            }
+
+            & .light {
+                position: absolute;
+                top: 15%;
+                right: -2px;
+                width: 12px;
+                height: 72px;
+                background: #0002;
+                border-radius: 15px;
+                transform-style: preserve-3d;
+
+                &::before{
+                    position: absolute;
+                    content: '';
+                    top: 4px;
+                    left: 2px;
+                    width: 150px;
+                    background: linear-gradient(90deg, #fff6, transparent);
+                    transform-origin: left;
+                    transform: perspective(900px) rotateY(-50deg);
+                    height: 16px;
+                }
+                &::after{
+                    position: absolute;
+                    content: '';
+                    bottom: 4px;
+                    left: 2px;
+                    width: 150px;
+                    background: linear-gradient(90deg, #fff6, transparent);
+                    transform-origin: left;
+                    transform: perspective(900px) rotateY(-50deg);
+                    height: 16px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes move_car {
+    0%{
+        transform: translateX(5px) translateY(-30px);
+    }
+    25%{
+        transform: translateX(70px) translateY(-10px);
+    }
+    50%{
+        transform: translateX(0px) translateY(0px);
+    }
+    75%{
+        transform: translateX(35px) translateY(0px);
+    }
+    100%{
+        transform: translateX(5px) translateY(-30px);
+    }
+}
