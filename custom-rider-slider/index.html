@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Rider</title>
+</head>
+<body>
+    <div class="box">
+        <input type="range" class="" value="0" min="0" max="100" onmousemove="rangeValue(this.value)">
+        <div id="range-value"></div>
+    </div>
+    <script>
+        function rangeValue(value) {
+            const ele = document.querySelector('#range-value')
+            ele.innerHTML = value
+        }
+    </script>
+</body>
+</html>
