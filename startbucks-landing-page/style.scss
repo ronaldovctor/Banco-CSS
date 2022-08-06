@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+$color-green: #017143;
+
+section {
+    position: relative;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: row;
+
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 50px;
+            
+            li {
+                cursor: pointer;
+                font-size: 1.2em;
+                font-weight: 500;
+                position: relative;
+                padding: 15px;
+                overflow: hidden;
+                transition: .4s;
+
+                &::before{
+                    position: absolute;
+                    z-index: -1;
+                    content: '';
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    transform: translate(-50%, -50%) scale(0);
+                    transition: .4s;
+                    border-radius: 50%;
+                    background-color: $color-green;
+                }
+
+                &:hover {
+                    color: white;
+
+                    &::before{
+                        transform: translate(-50%, -50%) scale(1);
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+
+        .text-box {
+
+            h2 {
+                font-size: 4.5em;
+                font-weight: 500;
+                line-height: 1.3em;
+
+                span {
+                    font-size: 1.3em;
+                    font-weight: 800;
+                    color: $color-green;
+                }
+            }
+            
+            p {
+                font-weight: 500;
+                max-width: 650px;
+            }
+
+            a {
+                display: inline-block;
+                color: white;
+                text-transform: uppercase;
+                background-color: $color-green;
+                padding: 7px 17px;
+                text-decoration: none;
+                font-weight: 400;
+                border-radius: 20px;
+                margin-top: 20px;
+                transition: .5s;
+
+                &:hover{
+                    letter-spacing: .1em;
+                }
+            }
+        }
+
+        .img-box {
+            width: 450px;
+            margin-right: 50px;
+            margin-top: 60px;
+
+            img {
+                max-width: 450px;
+            }
+        }
+    }
+
+    .sci {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+
+        img {
+            filter: invert(1);
+            transform: scale(.7);
+        }
+    }
+
+    .thumb {
+        position: absolute;
+        display: flex;
+        list-style: none;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
+        gap: 20px;
+
+        li {
+            transition: .5s;
+            cursor: pointer;
+
+            img {
+                max-width: 100px;
+            }
+
+            &:hover {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+    }
+
+    .circle {
+        position: absolute;
+        z-index: -10;
+        inset: 0;
+        background: $color-green;
+        clip-path: circle(600px at right 800px);
+    }
+}

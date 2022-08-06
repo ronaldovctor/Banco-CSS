@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>StarBucks</title>
+  </head>
+  <body>
+    <section>
+      <div class="circle"></div>
+      <header>
+        <a href="#" class="logo">
+          <img src="./imgs/logo.png" alt="" />
+        </a>
+        <ul>
+          <li>Home</li>
+          <li>Menu</li>
+          <li>What's New</li>
+          <li>Contact</li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="text-box">
+          <h2>It's not just Coffe</h2>
+          <h2>It's <span>Starbucks</span></h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam hic
+            itaque consequuntur quis ducimus, possimus adipisci aut! Distinctio
+            alias fuga cupiditate. Ea qui placeat autem est vitae rem deserunt
+            excepturi.
+          </p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="img-box">
+          <img src="./imgs/img1.png" class="starbucks"/>
+        </div>
+      </div>
+      <ul class="sci">
+        <li>
+          <a href="#">
+            <img src="./imgs/facebook.png" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./imgs/twitter.png" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="./imgs/instagram.png" />
+          </a>
+        </li>
+      </ul>
+      <ul class="thumb">
+        <li>
+          <img src="./imgs/thumb1.png" data-color="#017143" onclick="imgSlider('img1.png')"/>
+        </li>
+        <li>
+          <img src="./imgs/thumb2.png" data-color="#eb7495" onclick="imgSlider('img2.png')"/>
+        </li>
+        <li>
+          <img src="./imgs/thumb3.png" data-color="#d752b1" onclick="imgSlider('img3.png')"/>
+        </li>
+      </ul>
+    </section>
+    <script>
+        function imgSlider(anything){
+            document.querySelector('.starbucks').src = `./imgs/${anything}`
+        }
+        document.querySelectorAll('.thumb li img').forEach(
+            (element) => {
+                let circle = document.querySelector('.circle')
+                element.addEventListener('click', ()=> {
+                    let color = element.getAttribute('data-color')
+                    circle.style.background = color
+                })
+            }
+        )
+    </script>
+  </body>
+</html>
