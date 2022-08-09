@@ -40,7 +40,7 @@ body .bowl::after {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(92, 92, 92, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   width: 150px;
   height: 70px;
   border-radius: 50%;
@@ -69,7 +69,7 @@ body .bowl .liquid::before {
 body .shadow {
   position: absolute;
   z-index: -2;
-  top: 400px;
+  bottom: 29%;
   left: 50%;
   transform: translateX(-50%);
   width: 300px;
