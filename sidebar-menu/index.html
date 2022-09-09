@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="style.css" />
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+		></script>
+		<title>Menu</title>
+	</head>
+	<body>
+		<div class="navigation">
+			<div class="toggle-menu">
+				<div class="hamburguer"></div>
+			</div>
+			<ul class="options">
+				<li style="--clr: #f44336">
+					<a href="#">
+						<span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+						<span class="text">Home</span>
+					</a>
+				</li>
+				<li style="--clr: #ffa117">
+					<a href="#">
+						<span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+						<span class="text">About</span>
+					</a>
+				</li>
+				<li style="--clr: #0fc70f">
+					<a href="#">
+						<span class="icon">
+							<ion-icon name="chatbubble-outline"></ion-icon>
+						</span>
+						<span class="text">Messages</span>
+					</a>
+				</li>
+				<li style="--clr: #2196f3">
+					<a href="#">
+						<span class="icon">
+							<ion-icon name="camera-outline"></ion-icon>
+						</span>
+						<span class="text">Photos</span>
+					</a>
+				</li>
+				<li style="--clr: #b145e9">
+					<a href="#">
+						<span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+						<span class="text">Settings</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script>
+			const menuToggle = document.querySelector('.navigation')
+			const hamburguer = document.querySelector('.hamburguer')
+			hamburguer.addEventListener('click', function () {
+				menuToggle.classList.toggle('open')
+			})
+
+			const options = document.querySelectorAll('li')
+
+			function activeLink() {
+				options.forEach((item) => {
+					item.classList.remove('active')
+					this.classList.add('active')
+				})
+			}
+
+			options.forEach((item) => {
+				item.addEventListener('click', activeLink)
+			})
+		</script>
+	</body>
+</html>
