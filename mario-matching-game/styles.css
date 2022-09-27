@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: #ebebeb;
+}
+body .game {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+body .game h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+body .game .box {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  width: 1200px;
+  height: 400px;
+  background-color: black;
+  border: 2px solid black;
+}
+body .game .box label {
+  position: relative;
+  cursor: pointer;
+}
+body .game .box label + label {
+  border-top: 2px solid black;
+}
+body .game .box label input[type=checkbox] {
+  visibility: hidden;
+}
+body .game .box label input[type=checkbox]:checked ~ i {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+body .game .box label i {
+  position: absolute;
+  inset: 0;
+  -webkit-animation: move steps(3) infinite;
+          animation: move steps(3) infinite;
+}
+body .game .box label:nth-child(1) i {
+  background-image: url("./imgs/01.jpg");
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+}
+body .game .box label:nth-child(2) i {
+  background-image: url("./imgs/02.jpg");
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+body .game .box label:nth-child(3) i {
+  background-image: url("./imgs/03.jpg");
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+body .game button {
+  display: block;
+  margin: 2rem auto;
+  padding: 10px 25px;
+  border: none;
+  font-size: 1.25rem;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+body .game button:active, body .game button:hover {
+  background: #e22d2d;
+  transform: scale(0.95);
+}
+@-webkit-keyframes move {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -2400px;
+  }
+}
+@keyframes move {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -2400px;
+  }
+}/*# sourceMappingURL=styles.css.map */
