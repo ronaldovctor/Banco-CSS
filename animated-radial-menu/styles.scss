@@ -1,0 +1,79 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #001229;
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+
+	.menu {
+		display: flex;
+		position: relative;
+		list-style: none;
+		width: 480px;
+		align-items: center;
+		justify-content: center;
+
+		.toggle {
+			position: absolute;
+			z-index: 100;
+			display: grid;
+			place-content: center;
+			padding: 40px;
+			border: 3px solid white;
+			background-color: white;
+			color: black;
+			border-radius: 50%;
+			font-size: 3rem;
+			cursor: pointer;
+			transition: transform 0.6s;
+			transform: rotate(0deg);
+
+			&:hover {
+				box-shadow: 0 0 30px 0px white;
+				box-shadow: 0 0 50px 0px white;
+			}
+		}
+
+		li {
+			position: absolute;
+			left: 0;
+			font-size: 2.5rem;
+			transform-origin: 240px;
+			transform: translateX(180px) rotate(0deg);
+			transition: transform 0.5s;
+
+			a {
+				display: grid;
+				place-content: center;
+				padding: 20px;
+				border-radius: 50%;
+				color: var(--clr);
+				border: 3px solid var(--clr);
+				transition: 0.5s;
+				transform: rotate(calc(360deg / -8 * var(--i)));
+
+				&:hover {
+					color: black;
+					background-color: var(--clr);
+					box-shadow: 0 0 30px 0px var(--clr);
+					box-shadow: 0 0 30px 0px var(--clr);
+				}
+			}
+		}
+
+		&.active {
+			& .toggle {
+				transform: rotate(315deg);
+			}
+
+			li {
+				transform: rotate(calc(360deg / 8 * var(--i))) translateX(0);
+			}
+		}
+	}
+}
