@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  background: #000;
+}
+body .container {
+  display: grid;
+  place-items: center;
+  margin: auto;
+  width: 100%;
+  height: 300px;
+  -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.3333333333));
+}
+body .container .loader {
+  display: flex;
+  position: relative;
+  width: 300px;
+  height: 100%;
+  background: black;
+  border-radius: 50%;
+}
+body .container .loader span {
+  position: absolute;
+  inset: 0;
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+}
+body .container .loader span::before {
+  position: absolute;
+  content: "";
+  background: black;
+  inset: 30px;
+  border-radius: 50%;
+  z-index: 1;
+}
+body .container .loader i {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+}
+body .container .loader i:first-child {
+  background: linear-gradient(to bottom, rgba(0, 255, 249, 0.4), transparent 80%);
+  left: 0;
+  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
+}
+body .container .loader i:first-child::before {
+  position: absolute;
+  content: "";
+  background: #00fff9;
+  right: 0;
+  translate: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 10px #00fff9, 0 0 20px #00fff9, 0 0 35px #00fff9, 0 0 45px #00fff9, 0 0 60px #00fff9, 0 0 75px #00fff9, 0 0 95px #00fff9, 0 0 115px #00fff9, 0 0 135px #00fff9, 0 0 175px #00fff9;
+}
+body .container .loader i:last-child {
+  background: linear-gradient(to top, rgba(0, 255, 249, 0.4), transparent 80%);
+  right: 0;
+  border-top-right-radius: 150px;
+  border-bottom-right-radius: 150px;
+}
+body .container .loader i:last-child::before {
+  position: absolute;
+  content: "";
+  background: rgb(0, 255, 249);
+  bottom: 0;
+  translate: -50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 10px #00fff9, 0 0 20px #00fff9, 0 0 35px #00fff9, 0 0 45px #00fff9, 0 0 60px #00fff9, 0 0 75px #00fff9, 0 0 95px #00fff9, 0 0 115px #00fff9, 0 0 135px #00fff9, 0 0 175px #00fff9;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=styles.css.map */

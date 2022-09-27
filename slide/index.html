@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Slide</title>
+	</head>
+	<body>
+		<div class="slideBox">
+			<div class="slide" slide>
+				<img
+					src="./imgs/car_3.jpg"
+					alt="stefan-widua-mjtmj8xGMVo-unsplash"
+					class="img"
+				/>
+				<!--Imagem clone do Fusca que vai jogar o slide para o verdadeiro Fusca (4 elemento), reiniciando o slide na ação de prev--->
+				<img
+					src="./imgs/car_1.jpg"
+					alt="erik-mclean-ZRns2R5azu0-unsplash"
+					class="img"
+				/>
+				<img
+					src="./imgs/car_2.jpg"
+					alt="leonardo-venturoli-LlqJyjr5U_o-unsplash"
+					class="img"
+				/>
+				<img
+					src="./imgs/car_3.jpg"
+					alt="stefan-widua-mjtmj8xGMVo-unsplash"
+					class="img"
+				/>
+				<img
+					src="./imgs/car_1.jpg"
+					alt="erik-mclean-ZRns2R5azu0-unsplash"
+					class="img"
+				/>
+				<!--Imagem clone do Nissan GTR que vai jogar o slide para o verdadeiro Nissan GTR (segundo elemento), reiniciando o slide na ação de next--->
+			</div>
+		</div>
+		<div class="btns">
+			<button prev>Prev</button>
+			<button next>Next</button>
+		</div>
+
+		<script>
+			function initSlide() {
+				const slide = document.querySelector('div[slide]')
+				const slideImgs = document.querySelectorAll('div[slide] img')
+
+				const prevBtn = document.querySelector('button[prev]')
+				const nextBtn = document.querySelector('[next]')
+
+				let counter = 1
+				const size = slideImgs[0].clientWidth
+
+				slide.style.transform = `translateX(-${size * counter}px)`
+
+				prevBtn.addEventListener('click', () => {
+					counter--
+					slide.style.transition = 'transform 0.4s ease-in-out'
+					slide.style.transform = `translateX(${-size * counter}px)`
+				})
+				nextBtn.addEventListener('click', () => {
+					counter++
+					slide.style.transition = 'transform 0.4s ease-in-out'
+					slide.style.transform = `translateX(${-size * counter}px)`
+				})
+
+				slide.addEventListener('transitionend', () => {
+					if (slideImgs[counter] == slideImgs[slideImgs.length - 1]) {
+						counter = 1
+						slide.style.transition = 'none'
+						slide.style.transform = `translateX(${-size * counter}px)`
+					}
+					if (slideImgs[counter] == slideImgs[0]) {
+						counter = slideImgs.length - 2
+						slide.style.transition = 'none'
+						slide.style.transform = `translateX(${-size * counter}px)`
+					}
+				})
+			}
+
+			window.addEventListener('load', initSlide)
+		</script>
+	</body>
+</html>
